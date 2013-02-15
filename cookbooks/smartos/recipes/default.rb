@@ -67,6 +67,8 @@ include_recipe "smartos::nicstat"
 ##
 include_recipe "smartos::ntp"
 
+include_recipe "smartos::graphite"
+
 ## Write the motd
 ##
-include_recipe "smartos::motd"
+# include_recipe "smartos::motd"

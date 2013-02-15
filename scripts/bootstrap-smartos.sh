@@ -1,7 +1,7 @@
 #!/bin/bash
 # Chef Solo Bootstrap for SmartOS GZ
 # See: http://wiki.smartos.org/display/DOC/Using+Chef
-# EXAMPLE USE:   curl -s http://8.12.35.49/smartos/bootstrap-smartos.sh | bash
+# EXAMPLE USE:   curl -s http://192.168.3.114:8080/smartos/bootstrap-smartos.sh | bash
 
 if [[ -f /opt/custom/smf/chef-solo.xml && -f /var/chef/solo.rb ]]; then
  echo "WARNING: Chef Solo already installed and configured.  Sleeping for 30s.  Ctl-C to abort."
@@ -9,7 +9,7 @@ if [[ -f /opt/custom/smf/chef-solo.xml && -f /var/chef/solo.rb ]]; then
 fi
 
 # Download and install Chef Fat Client
-cd /tmp && /usr/bin/curl -Os http://8.12.35.49/smartos/Chef-fatclient-SmartOS-10.14.2.tar.bz2
+cd /tmp && /usr/bin/curl -Os http://192.168.3.114:8080/smartos/Chef-fatclient-SmartOS-10.14.2.tar.bz2
 cd / && gtar xfj /tmp/Chef-fatclient-SmartOS-10.14.2.tar.bz2
 cp /usr/bin/gtar /opt/chef/bin/tar
 mkdir -p /opt/custom/smf /var/chef
@@ -21,8 +21,8 @@ cat >/var/chef/solo.rb  <<END
 ##
 file_cache_path "/var/chef"
 cookbook_path "/var/chef/cookbooks"
-json_attribs "http://8.12.35.49/smartos/smartos.json"
-recipe_url "http://8.12.35.49/smartos/smartos_cookbooks.tar.gz"
+json_attribs "http://192.168.3.114:8080/smartos/smartos.json"
+recipe_url "http://192.168.3.114:8080/smartos/smartos_cookbooks.tar.gz"
 END
 
 if [[ $NODENAME ]]; then
@@ -30,7 +30,7 @@ if [[ $NODENAME ]]; then
 fi
 
 # Install and Import SMF Service for Chef Solo
-cd /opt/custom/smf && /usr/bin/curl -Os http://8.12.35.49/smartos/chef-solo.xml
+cd /opt/custom/smf && /usr/bin/curl -Os http://192.168.3.114:8080/smartos/chef-solo.xml
 svccfg import /opt/custom/smf/chef-solo.xml
 
 if svcs chef-solo >/dev/null; then
