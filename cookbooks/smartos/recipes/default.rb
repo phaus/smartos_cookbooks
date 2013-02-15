@@ -59,15 +59,20 @@ if node.attribute?("ssh")
   include_recipe "smartos::ssh"
 end
 
-## Install 'nicstat'
+## Install 'nicstat'/'iozone'
 ##
 include_recipe "smartos::nicstat"
+include_recipe "smartos::iozone"
+
+## Install 'pkgin'
+include_recipe "smartos::pkgin"
 
 ## Configure NTP
 ##
 include_recipe "smartos::ntp"
 
-include_recipe "smartos::graphite"
+
+#include_recipe "smartos::graphite"
 
 ## Write the motd
 ##
