@@ -16,3 +16,5 @@ default[:dns][:nameservers]     = ["208.67.220.220", "208.67.222.222"]
 
 # default[:package][:carbonx][:name] = "py27-carbon-0.9.10"
 # default[:package][:carbonx][:version] = "0.9.10"
+
+default[:chef_source][:url]	= "http://192.168.3.114:8080"

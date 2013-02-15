@@ -67,6 +67,9 @@ include_recipe "smartos::iozone"
 ## Install 'pkgin'
 include_recipe "smartos::pkgin"
 
+include_recipe "smartos::dtrace_scripts"
+
+
 ## Configure NTP
 ##
 include_recipe "smartos::ntp"
