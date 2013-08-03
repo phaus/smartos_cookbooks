@@ -1,7 +1,7 @@
 pkgin_binary = '/opt/pkg/bin/pkgin'
 
 remote_file '/pkgin-bootstrap.tar.gz' do
-	source "#{node[:chef_source][:url]}/smartos/bootstrap-2012Q4-illumos.tar.gz"
+	source "#{node[:chef_source][:url]}/illumos/bootstrap/bootstrap-2013Q1-illumos.tar.gz"
 	mode 0755
 	owner "root"
 	group "root"
