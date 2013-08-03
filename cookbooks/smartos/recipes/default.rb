@@ -72,7 +72,7 @@ include_recipe "smartos::pkgin"
 
 ## Configure NTP
 ##
-include_recipe "smartos::ntp"
+#include_recipe "smartos::ntp"
 
 
 #include_recipe "smartos::graphite"
